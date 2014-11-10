@@ -20,7 +20,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
@@ -28,7 +27,6 @@ import java.util.Map;
 import java.util.Collections;
 import java.util.Comparator;
 import java.lang.String;
-import java.lang.Object;
 
 public class main extends Activity {
     WifiManager wifi;
@@ -42,20 +40,13 @@ public class main extends Activity {
 
     private static final Map wifichannel = new HashMap();
     static {
-        wifichannel.put("2412", "2.4G Ch01");
-        wifichannel.put("2417", "2.4G Ch02");
-        wifichannel.put("2422", "2.4G Ch03");
-        wifichannel.put("2427", "2.4G Ch04");
-        wifichannel.put("2432", "2.4G Ch05");
-        wifichannel.put("2437", "2.4G Ch06");
-        wifichannel.put("2442", "2.4G Ch07");
-        wifichannel.put("2447", "2.4G Ch08");
-        wifichannel.put("2452", "2.4G Ch09");
-        wifichannel.put("2457", "2.4G Ch10");
-        wifichannel.put("2462", "2.4G Ch11");
-        wifichannel.put("2467", "2.4G Ch12");
-        wifichannel.put("2472", "2.4G Ch13");
-        wifichannel.put("2484", "2.4G Ch14");
+        wifichannel.put("2412", "2.4G Ch01");wifichannel.put("2417", "2.4G Ch02");
+        wifichannel.put("2422", "2.4G Ch03");wifichannel.put("2427", "2.4G Ch04");
+        wifichannel.put("2432", "2.4G Ch05");wifichannel.put("2437", "2.4G Ch06");
+        wifichannel.put("2442", "2.4G Ch07");wifichannel.put("2447", "2.4G Ch08");
+        wifichannel.put("2452", "2.4G Ch09");wifichannel.put("2457", "2.4G Ch10");
+        wifichannel.put("2462", "2.4G Ch11");wifichannel.put("2467", "2.4G Ch12");
+        wifichannel.put("2472", "2.4G Ch13");wifichannel.put("2484", "2.4G Ch14");
     }
 
 
@@ -110,7 +101,7 @@ public class main extends Activity {
                         HashMap item = new HashMap();
                         item.put("ssid", results.get(size).SSID);
                         item.put("power", new String(results.get(size).level+" dBm"));
-                        String wifichn = " ?G";
+                        String wifichn = wifichannel.containsKey(new String(""+results.get(size).frequency)) ? wifichannel.get(new String(""+results.get(size).frequency)).toString() :"5G";
                         item.put("freq", wifichn);
                         arraylist.add(item);
                         size--;
